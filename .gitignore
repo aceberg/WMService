@@ -1,0 +1,5 @@
+# Ignore local data
+data/
+tmp/
+wmservice
+WMService
