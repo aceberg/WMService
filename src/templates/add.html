@@ -3,32 +3,27 @@
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
-                <form action="/save_config/" method="post">
-                    <h3>Theme and Show</h3>
-                    <select name="theme" class="form-select">
-                    <option selected>{{ .Config.Theme }}</option>
-                    {{ range .Themes }}
-                        <option value="{{ . }}">{{ . }}</option>
-                    {{ end }}
-                    </select>
-                    <input name="show" type="text" value="{{ .Config.Show }}" class="form-control text-dark w-25">
+            <form action="/save_item/" method="post">
+                <div class="w-50 mx-auto">
+                    <input name="id" value="{{ .OneItem.Id }}" type="hidden" class="form-control">
+                    <input name="date" value="{{ .OneItem.Date }}" type="date" class="form-control text-dark" placeholder="Date">
+                    <input name="mark" value="{{ .OneItem.Mark }}" type="text" class="form-control text-dark" placeholder="Mark">
+                    <input name="model" value="{{ .OneItem.Model }}" type="text" class="form-control text-dark" placeholder="Model">
+                    <input name="trouble" value="{{ .OneItem.Trouble }}" type="text" class="form-control text-dark" placeholder="Trouble">
+                    <input name="trouble1" value="{{ .OneItem.Trouble1 }}" type="text" class="form-control text-dark" placeholder="Trouble1">
+                    <input name="street" value="{{ .OneItem.Street }}" type="text" class="form-control text-dark" placeholder="Street">
+                    <input name="house" value="{{ .OneItem.House }}" type="text" class="form-control text-dark" placeholder="House">
+                    <input name="flat" value="{{ .OneItem.Flat }}" type="text" class="form-control text-dark" placeholder="Flat">
+                    <input name="phone" value="{{ .OneItem.Phone }}" type="text" class="form-control text-dark" placeholder="Phone">
+                    <input name="other" value="{{ .OneItem.Other }}" type="text" class="form-control text-dark" placeholder="Other">
+                    <input name="repair" value="{{ .OneItem.Repair }}" type="text" class="form-control text-dark" placeholder="Repair">
+                    <input name="repair1" value="{{ .OneItem.Repair1 }}" type="text" class="form-control text-dark" placeholder="Repair1">
+                    <input name="war" value="{{ .OneItem.War }}" type="text" class="form-control text-dark" placeholder="Warranty">
+                    <input name="sum" value="{{ .OneItem.Sum }}" type="text" class="form-control text-dark" placeholder="Sum">
+                    <input name="note" value="{{ .OneItem.Note }}" type="text" class="form-control text-dark" placeholder="Note">
                     <button type="submit" class="btn btn-primary">Save</button>
-                </form>
-            </div>
-            <div class="col">
-                <h3>Backup</h3>
-                <a href="/backup/create/"><button type="submit" class="btn btn-primary">Create DB backup on disk</button></a>
-                &nbsp;&nbsp;
-                <a href="/backup/download"><button type="submit" class="btn btn-success">Download</button></a>
-                <br>
-                <br>
-                <p>Upload Database from file</p>
-                <form enctype="multipart/form-data" action="/upload/" method="post">
-                    <input type="file" name="dbfile" class="form-control text-dark"/>
-                    <button type="submit" class="btn btn-danger">Upload</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
         

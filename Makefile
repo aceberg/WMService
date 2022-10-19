@@ -20,6 +20,10 @@ fmt:
 	cd src && \
 	go fmt ./...
 
+lint:
+	cd src && \
+	golangci-lint run
+
 docker-build:
 	docker build -t $(DUSER)/$(PKG_NAME) .
 

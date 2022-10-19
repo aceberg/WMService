@@ -27,6 +27,7 @@ func Webgui(appConfig Conf) {
 	http.HandleFunc("/backup/", backupHandler)
 	http.HandleFunc("/config/", configHandler)
 	http.HandleFunc("/save_config/", saveConfig)
+	http.HandleFunc("/save_item/", saveItem)
 	http.HandleFunc("/search/", searchHandler)
 	http.HandleFunc("/upload/", uploadHandler)
 	http.ListenAndServe(address, nil)
