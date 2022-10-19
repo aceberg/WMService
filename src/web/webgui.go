@@ -23,9 +23,11 @@ func Webgui(appConfig Conf) {
 	log.Println("=================================== ")
 
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/add/", addHandler)
 	http.HandleFunc("/backup/", backupHandler)
 	http.HandleFunc("/config/", configHandler)
 	http.HandleFunc("/save_config/", saveConfig)
+	http.HandleFunc("/search/", searchHandler)
 	http.HandleFunc("/upload/", uploadHandler)
 	http.ListenAndServe(address, nil)
 }

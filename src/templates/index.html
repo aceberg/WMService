@@ -6,7 +6,7 @@
         <form action="/search/" method="post">
             <div class="input-group w-75 mx-auto">
                 <select name="field1" class="form-select">
-                    <option selected>STREET</option>
+                    <option selected value="STREET">STREET</option>
                     <option value="ANY">ANY</option>
                     {{ range .Heads }}
                     <option value="{{ . }}">{{ . }}</option>
@@ -14,8 +14,8 @@
                 </select>
                 <input name="search1" type="text" class="form-control text-dark w-25" placeholder="Search" autofocus>
                 <select name="field2" class="form-select">
-                    <option selected>HOUSE</option>
-                    <option value="ANY">ANY</option>
+                    <option selected value="HOUSE">HOUSE</option>
+                    <!-- <option value="ANY">ANY</option> -->
                     {{ range .Heads }}
                     <option value="{{ . }}">{{ . }}</option>
                     {{ end }}
@@ -34,21 +34,21 @@
             </tr> -->
             {{ range .ItemList }}
             <tr>
-                <td>{{ .Date }}</td>
-                <td>{{ .Mark }}</td>
-                <td>{{ .Model }}</td>
-                <td>{{ .Trouble }}</td>
-                <td>{{ .Trouble1 }}</td>
-                <td>{{ .Street }}</td>
-                <td>{{ .House }}</td>
-                <td>{{ .Flat }}</td>
-                <td>{{ .Phone }}</td>
-                <td>{{ .Other }}</td>
-                <td>{{ .Repair }}</td>
-                <td>{{ .Repair1 }}</td>
-                <td>{{ .War }}</td>
-                <td>{{ .Sum }}</td>
-                <td>{{ .Note }}</td>
+                <td><b>{{ .Date }}</b></td>
+                <td><b>{{ .Mark }}</b></td>
+                <td><b>{{ .Model }}</b></td>
+                <td><b>{{ .Trouble }}</b></td>
+                <td><b>{{ .Trouble1 }}</b></td>
+                <td><b>{{ .Street }}</b></td>
+                <td><b>{{ .House }}</b></td>
+                <td><b>{{ .Flat }}</b></td>
+                <td><b>{{ .Phone }}</b></td>
+                <td><b>{{ .Other }}</b></td>
+                <td><b>{{ .Repair }}</b></td>
+                <td><b>{{ .Repair1 }}</b></td>
+                <td><b>{{ .War }}</b></td>
+                <td><b>{{ .Sum }}</b></td>
+                <td><b>{{ .Note }}</b></td>
                 <td>
                     <form action="/edit/" method="post">
                         <input name="id" value="{{ .Id }}" type="hidden" class="form-control">
