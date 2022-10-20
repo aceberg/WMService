@@ -7,5 +7,6 @@ type GuiData struct {
 	ItemList []Item
 	OneItem  Item
 	Sum      int
+	Len		 int
 	Themes   []string
 }

@@ -51,7 +51,22 @@
                 <td><b>{{ .Note }}</b></td>
                 <td>
                     <form action="/edit/" method="post">
-                        <input name="id" value="{{ .Id }}" type="hidden" class="form-control">
+                        <input name="id" value="{{ .Id }}" type="hidden">
+                        <input name="date" value="{{ .Date }}" type="hidden">
+                        <input name="mark" value="{{ .Mark }}" type="hidden">
+                        <input name="model" value="{{ .Model }}" type="hidden">
+                        <input name="trouble" value="{{ .Trouble }}" type="hidden">
+                        <input name="trouble1" value="{{ .Trouble1 }}" type="hidden">
+                        <input name="street" value="{{ .Street }}" type="hidden">
+                        <input name="house" value="{{ .House }}" type="hidden">
+                        <input name="flat" value="{{ .Flat }}" type="hidden">
+                        <input name="phone" value="{{ .Phone }}" type="hidden">
+                        <input name="other" value="{{ .Other }}" type="hidden">
+                        <input name="repair" value="{{ .Repair }}" type="hidden">
+                        <input name="repair1" value="{{ .Repair1 }}" type="hidden">
+                        <input name="war" value="{{ .War }}" type="hidden">
+                        <input name="sum" value="{{ .Sum }}" type="hidden">
+                        <input name="note" value="{{ .Note }}" type="hidden">
                         <button type="submit" class="btn btn-sm btn-outline-primary">
                             <i class="bi bi-pencil"></i>
                         </button>

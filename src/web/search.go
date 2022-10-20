@@ -32,6 +32,7 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 		guiData.ItemList = foundList
 		guiData.Heads = Heads
 		guiData.Sum = getSum(foundList)
+		guiData.Len = len(foundList)
 
 		tmpl, _ := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html")
 		tmpl.ExecuteTemplate(w, "header", guiData)

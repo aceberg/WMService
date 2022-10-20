@@ -1,31 +1,18 @@
 package web
 
 import (
-	// "fmt"
-	"github.com/aceberg/WMService/db"
 	. "github.com/aceberg/WMService/models"
 	"html/template"
 	"net/http"
-	"time"
 	"strconv"
 )
 
-func addHandler(w http.ResponseWriter, r *http.Request) {
+func editHandler(w http.ResponseWriter, r *http.Request) {
+	var item Item
 	var guiData GuiData
 
 	guiData.Config = AppConfig
 	guiData.Icon = Icon
-
-	currentTime := time.Now()
-	guiData.OneItem.Date = currentTime.Format("2006-01-02")
-
-	tmpl, _ := template.ParseFiles("templates/add.html", "templates/header.html", "templates/footer.html")
-	tmpl.ExecuteTemplate(w, "header", guiData)
-	tmpl.ExecuteTemplate(w, "add", guiData)
-}
-
-func saveItem(w http.ResponseWriter, r *http.Request) {
-	var item Item
 
 	item.Id, _ = strconv.Atoi(r.FormValue("id"))
 	item.Date = r.FormValue("date")
@@ -44,11 +31,9 @@ func saveItem(w http.ResponseWriter, r *http.Request) {
 	item.Sum = r.FormValue("sum")
 	item.Note = r.FormValue("note")
 
-	if item.Id == 0 {
-		db.AddItem(AppConfig.DbPath, item)
-	} else {
-		db.UpdateItem(AppConfig.DbPath, item)
-	}
+	guiData.OneItem = item
 
-	http.Redirect(w, r, "/", 302)
+	tmpl, _ := template.ParseFiles("templates/add.html", "templates/header.html", "templates/footer.html")
+	tmpl.ExecuteTemplate(w, "header", guiData)
+	tmpl.ExecuteTemplate(w, "add", guiData)
 }

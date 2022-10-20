@@ -26,6 +26,7 @@ func Webgui(appConfig Conf) {
 	http.HandleFunc("/add/", addHandler)
 	http.HandleFunc("/backup/", backupHandler)
 	http.HandleFunc("/config/", configHandler)
+	http.HandleFunc("/edit/", editHandler)
 	http.HandleFunc("/save_config/", saveConfig)
 	http.HandleFunc("/save_item/", saveItem)
 	http.HandleFunc("/search/", searchHandler)

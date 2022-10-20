@@ -25,6 +25,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	guiData.ItemList = ItemList[0:show]
 	guiData.Heads = Heads
 	guiData.Sum = getSum(ItemList[0:show])
+	guiData.Len = length
 
 	tmpl, _ := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html")
 	tmpl.ExecuteTemplate(w, "header", guiData)
