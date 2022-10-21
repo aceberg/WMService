@@ -15,6 +15,9 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 
 	guiData.Config = AppConfig
 	guiData.Icon = Icon
+	guiData.Mark = db.SelectList(AppConfig.DbPath, "rs_mark")
+	guiData.Themes = db.SelectList(AppConfig.DbPath, "rs_trouble")
+	guiData.Heads = db.SelectList(AppConfig.DbPath, "rs_repair")
 
 	currentTime := time.Now()
 	guiData.OneItem.Date = currentTime.Format("2006-01-02")

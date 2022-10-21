@@ -10,4 +10,5 @@ type GuiData struct {
 	Len      int
 	Themes   []string
 	Mark     []string
+	ListName string
 }

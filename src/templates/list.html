@@ -1,0 +1,45 @@
+{{ define "list" }}
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h3>Edit {{ .ListName }}</h3>
+                <form action="/list_del/" method="post" class="input-group">
+                    <input name="listname" value="{{ .ListName }}" type="hidden">
+                    <select name="name" class="form-select">
+                        {{ range .Mark }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <br>
+                <br>
+                <table class="table table-striped table-bordered">
+                    {{ range .Mark }}
+                    <tr>
+                        <td>{{ . }}</td>
+                    </tr>
+                    {{ end }}
+                </table>
+                <form action="/list_add/" method="post" class="input-group">
+                    <input name="listname" value="{{ .ListName }}" type="hidden">
+                    <input name="name" type="text" class="form-control text-dark">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="col">
+                <h3>Upload List</h3>
+                <form enctype="multipart/form-data" action="/list_upload/" method="post">
+                    <input name="listname" value="{{ .ListName }}" type="hidden">
+                    <input type="file" name="listfile" class="form-control text-dark"/>
+                    <button type="submit" class="btn btn-warning">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+        
+
+{{ template "footer" }}
+{{ end }}

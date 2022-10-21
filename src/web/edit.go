@@ -14,6 +14,9 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 	guiData.Config = AppConfig
 	guiData.Icon = Icon
+	guiData.Mark = db.SelectList(AppConfig.DbPath, "rs_mark")
+	guiData.Themes = db.SelectList(AppConfig.DbPath, "rs_trouble")
+	guiData.Heads = db.SelectList(AppConfig.DbPath, "rs_repair")
 
 	item.Id, _ = strconv.Atoi(r.FormValue("id"))
 	item.Date = r.FormValue("date")

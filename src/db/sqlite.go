@@ -40,7 +40,8 @@ func SelectList(path string, table string) []string {
 	}
 
 	list := []string{}
-	err = db.Select(&list, "SELECT NAME FROM $1 ORDER BY NAME ASC", table)
+	sqlStatement := "SELECT NAME FROM " + table + " ORDER BY NAME ASC"
+	err = db.Select(&list, sqlStatement)
 	if err != nil {
 		log.Fatal("ERROR in SelectList: ", err)
 	}
