@@ -32,3 +32,17 @@ func SelectAll(path string) []Item {
 	}
 	return itemList
 }
+
+func SelectList(path string, table string) []string {
+	db, err := sqlx.Connect("sqlite", path)
+	if err != nil {
+		log.Fatal("ERROR connecting to DB:", err)
+	}
+
+	list := []string{}
+	err = db.Select(&list, "SELECT NAME FROM $1 ORDER BY NAME ASC", table)
+	if err != nil {
+		log.Fatal("ERROR in SelectList: ", err)
+	}
+	return list
+}

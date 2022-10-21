@@ -3,20 +3,46 @@
 <body>
     <div class="container mt-5">
         <div class="row">
+            <form action="/delete/" method="post" class="input-group w-25 mx-auto">
+                    <input name="id" value="{{ .OneItem.Id }}" type="text" class="form-control" disabled>
+                    <input name="id" value="{{ .OneItem.Id }}" type="hidden" class="form-control">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <br>
+        <div class="row">
             <form action="/save_item/" method="post">
                 <div class="w-50 mx-auto">
                     <input name="id" value="{{ .OneItem.Id }}" type="hidden" class="form-control">
                     <input name="date" value="{{ .OneItem.Date }}" type="date" class="form-control text-dark" placeholder="Date">
-                    <input name="mark" value="{{ .OneItem.Mark }}" type="text" class="form-control text-dark" placeholder="Mark">
+                    <!-- <input name="mark" value="{{ .OneItem.Mark }}" type="text" class="form-control text-dark" placeholder="Mark"> -->
+                    <select name="mark" class="form-select">
+                        <option selected>{{ .OneItem.Mark }}</option>
+                        {{ range .Mark }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
                     <input name="model" value="{{ .OneItem.Model }}" type="text" class="form-control text-dark" placeholder="Model">
-                    <input name="trouble" value="{{ .OneItem.Trouble }}" type="text" class="form-control text-dark" placeholder="Trouble">
+                    <!-- <input name="trouble" value="{{ .OneItem.Trouble }}" type="text" class="form-control text-dark" placeholder="Trouble"> -->
+                    <select name="trouble" class="form-select">
+                        <option selected>{{ .OneItem.Trouble }}</option>
+                        {{ range .Themes }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
                     <input name="trouble1" value="{{ .OneItem.Trouble1 }}" type="text" class="form-control text-dark" placeholder="Trouble1">
                     <input name="street" value="{{ .OneItem.Street }}" type="text" class="form-control text-dark" placeholder="Street">
                     <input name="house" value="{{ .OneItem.House }}" type="text" class="form-control text-dark" placeholder="House">
                     <input name="flat" value="{{ .OneItem.Flat }}" type="text" class="form-control text-dark" placeholder="Flat">
                     <input name="phone" value="{{ .OneItem.Phone }}" type="text" class="form-control text-dark" placeholder="Phone">
                     <input name="other" value="{{ .OneItem.Other }}" type="text" class="form-control text-dark" placeholder="Other">
-                    <input name="repair" value="{{ .OneItem.Repair }}" type="text" class="form-control text-dark" placeholder="Repair">
+                    <!-- <input name="repair" value="{{ .OneItem.Repair }}" type="text" class="form-control text-dark" placeholder="Repair"> -->
+                    <select name="repair" class="form-select">
+                        <option selected>{{ .OneItem.Repair }}</option>
+                        {{ range .Heads }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
                     <input name="repair1" value="{{ .OneItem.Repair1 }}" type="text" class="form-control text-dark" placeholder="Repair1">
                     <input name="war" value="{{ .OneItem.War }}" type="text" class="form-control text-dark" placeholder="Warranty">
                     <input name="sum" value="{{ .OneItem.Sum }}" type="text" class="form-control text-dark" placeholder="Sum">

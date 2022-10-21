@@ -6,8 +6,8 @@ import (
 	. "github.com/aceberg/WMService/models"
 	"html/template"
 	"net/http"
-	"time"
 	"strconv"
+	"time"
 )
 
 func addHandler(w http.ResponseWriter, r *http.Request) {

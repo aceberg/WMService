@@ -16,3 +16,14 @@ func UpdateItem(path string, item Item) {
 
 	log.Println("INFO: updated", item)
 }
+
+func DeleteItem(path string, id int) {
+
+	sqlStatement := `DELETE FROM rs_tickets WHERE _id = '%d';`
+
+	sqlStatement = fmt.Sprintf(sqlStatement, id)
+
+	execAny(path, sqlStatement)
+
+	log.Println("INFO: deleted id =", id)
+}

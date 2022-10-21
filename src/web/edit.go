@@ -1,6 +1,7 @@
 package web
 
 import (
+	"github.com/aceberg/WMService/db"
 	. "github.com/aceberg/WMService/models"
 	"html/template"
 	"net/http"
@@ -36,4 +37,13 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, _ := template.ParseFiles("templates/add.html", "templates/header.html", "templates/footer.html")
 	tmpl.ExecuteTemplate(w, "header", guiData)
 	tmpl.ExecuteTemplate(w, "add", guiData)
+}
+
+func delHandler(w http.ResponseWriter, r *http.Request) {
+
+	id, _ := strconv.Atoi(r.FormValue("id"))
+
+	db.DeleteItem(AppConfig.DbPath, id)
+
+	http.Redirect(w, r, "/", 302)
 }
