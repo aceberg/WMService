@@ -28,7 +28,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
-          tags: env.VERSION
+          tags: ${{ env.VERSION }}
           addLatest: yes
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
