@@ -30,6 +30,7 @@ func SelectAll(path string) []Item {
 	if err != nil {
 		log.Fatal("ERROR in SelectAll: ", err)
 	}
+
 	return itemList
 }
 

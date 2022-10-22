@@ -8,6 +8,8 @@ import (
 
 func AddItem(path string, item Item) {
 
+	item = quoteItem(item)
+
 	sqlStatement := `INSERT INTO rs_tickets (DATE, MARK, MODEL, TROUBLE, TROUBLE1, STREET, HOUSE, FLAT, PHONE, OTHER, REPAIR, REPAIR1, WAR, SUM, NOTE)
 	VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');`
 

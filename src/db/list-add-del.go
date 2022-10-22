@@ -7,6 +7,8 @@ import (
 
 func ListInsert(path string, table string, name string) {
 
+	name = quoteStr(name)
+
 	sqlStatement := `INSERT INTO %s (NAME) VALUES ('%s');`
 
 	sqlStatement = fmt.Sprintf(sqlStatement, table, name)
@@ -17,6 +19,8 @@ func ListInsert(path string, table string, name string) {
 }
 
 func ListDelete(path string, table string, name string) {
+
+	name = quoteStr(name)
 
 	sqlStatement := `DELETE FROM %s WHERE NAME = '%s';`
 
