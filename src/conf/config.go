@@ -11,8 +11,8 @@ func GetConfig() (config Conf) {
 	viper.SetDefault("DB_PATH", "/data/wmservice/rs1.db")
 	viper.SetDefault("GUI_IP", "0.0.0.0")
 	viper.SetDefault("GUI_PORT", "8843")
-	viper.SetDefault("THEME", "lumen")
-	viper.SetDefault("SHOW", "15")
+	viper.SetDefault("THEME", "united")
+	viper.SetDefault("SHOW", "10")
 
 	viper.SetConfigFile(configPath)
 	viper.SetConfigType("env")
