@@ -15,7 +15,6 @@
                 <div class="w-50 mx-auto">
                     <input name="id" value="{{ .OneItem.Id }}" type="hidden" class="form-control">
                     <input name="date" value="{{ .OneItem.Date }}" type="date" class="form-control text-dark" placeholder="Date">
-                    <!-- <input name="mark" value="{{ .OneItem.Mark }}" type="text" class="form-control text-dark" placeholder="Mark"> -->
                     <select name="mark" class="form-select">
                         <option selected>{{ .OneItem.Mark }}</option>
                         {{ range .Mark }}
@@ -23,7 +22,6 @@
                         {{ end }}
                     </select>
                     <input name="model" value="{{ .OneItem.Model }}" type="text" class="form-control text-dark" placeholder="Model">
-                    <!-- <input name="trouble" value="{{ .OneItem.Trouble }}" type="text" class="form-control text-dark" placeholder="Trouble"> -->
                     <select name="trouble" class="form-select">
                         <option selected>{{ .OneItem.Trouble }}</option>
                         {{ range .Themes }}
@@ -36,7 +34,6 @@
                     <input name="flat" value="{{ .OneItem.Flat }}" type="text" class="form-control text-dark" placeholder="Flat">
                     <input name="phone" value="{{ .OneItem.Phone }}" type="text" class="form-control text-dark" placeholder="Phone">
                     <input name="other" value="{{ .OneItem.Other }}" type="text" class="form-control text-dark" placeholder="Other">
-                    <!-- <input name="repair" value="{{ .OneItem.Repair }}" type="text" class="form-control text-dark" placeholder="Repair"> -->
                     <select name="repair" class="form-select">
                         <option selected>{{ .OneItem.Repair }}</option>
                         {{ range .Heads }}
