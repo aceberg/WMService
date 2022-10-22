@@ -5,14 +5,10 @@
         <div class="row">
             <div class="col">
                 <h3>Edit {{ .ListName }}</h3>
-                <form action="/list_del/" method="post" class="input-group">
+                <form action="/list_add/" method="post" class="input-group">
                     <input name="listname" value="{{ .ListName }}" type="hidden">
-                    <select name="name" class="form-select">
-                        {{ range .Mark }}
-                            <option value="{{ . }}">{{ . }}</option>
-                        {{ end }}
-                    </select>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <input name="name" type="text" class="form-control text-dark">
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </form>
                 <br>
                 <br>
@@ -23,11 +19,6 @@
                     </tr>
                     {{ end }}
                 </table>
-                <form action="/list_add/" method="post" class="input-group">
-                    <input name="listname" value="{{ .ListName }}" type="hidden">
-                    <input name="name" type="text" class="form-control text-dark">
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </form>
             </div>
             <div class="col">
                 <h3>Upload List</h3>
@@ -35,6 +26,17 @@
                     <input name="listname" value="{{ .ListName }}" type="hidden">
                     <input type="file" name="listfile" class="form-control text-dark"/>
                     <button type="submit" class="btn btn-warning">Upload</button>
+                </form>
+                <br>
+                <br>
+                <form action="/list_del/" method="post" class="input-group">
+                    <input name="listname" value="{{ .ListName }}" type="hidden">
+                    <select name="name" class="form-select">
+                        {{ range .Mark }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
         </div>
