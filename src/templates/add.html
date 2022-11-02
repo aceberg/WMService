@@ -4,6 +4,7 @@
     <div class="container mt-5">
         <div class="row">
             <form action="/delete/" method="post" class="input-group w-25 mx-auto">
+                    <input type="checkbox" name="check" value="yes">&nbsp;
                     <input name="id" value="{{ .OneItem.Id }}" type="text" class="form-control" disabled>
                     <input name="id" value="{{ .OneItem.Id }}" type="hidden" class="form-control">
                     <button type="submit" class="btn btn-danger">Delete</button>

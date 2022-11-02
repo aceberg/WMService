@@ -43,10 +43,12 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func delHandler(w http.ResponseWriter, r *http.Request) {
-
+	check := r.FormValue("check")
 	id, _ := strconv.Atoi(r.FormValue("id"))
 
-	db.DeleteItem(AppConfig.DbPath, id)
+	if check == "yes" {
+		db.DeleteItem(AppConfig.DbPath, id)
+	}
 
 	http.Redirect(w, r, "/", 302)
 }
