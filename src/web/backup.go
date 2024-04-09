@@ -34,10 +34,12 @@ func backupHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "download":
 		filename := "rs-" + currentTime.Format("2006-01-02T15-04") + ".db"
-
+		
 		w.Header().Set("Content-Disposition", "attachment; filename="+filename)
 		w.Header().Set("Content-Type", "application/octet-stream")
 		http.ServeFile(w, r, AppConfig.DbPath)
+
+		log.Println("INFO: Backup file downloaded:", filename)
 	default:
 		http.Redirect(w, r, "/config/", 302)
 	}

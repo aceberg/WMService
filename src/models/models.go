@@ -1,5 +1,13 @@
 package models
 
+type Conf struct {
+	DbPath  string
+	GuiIP   string
+	GuiPort string
+	Theme   string
+	Show    string
+}
+
 type Item struct {
 	Id       int    `db:"_id"`
 	Date     string `db:"DATE"`
@@ -17,4 +25,17 @@ type Item struct {
 	War      string `db:"WAR"`
 	Sum      string `db:"SUM"`
 	Note     string `db:"NOTE"`
+}
+
+type GuiData struct {
+	Config   Conf
+	Heads    []string
+	Icon     string
+	ItemList []Item
+	OneItem  Item
+	Sum      int
+	Len      int
+	Themes   []string
+	Mark     []string
+	ListName string
 }
